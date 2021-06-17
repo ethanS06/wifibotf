@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QObject>
+#include <QWebEngineView>
 
 
 //constructueurd de la mainwindow
@@ -8,11 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-color: grey;");
+
 
     this->minot = new MyRobot(this); //instancie un robot dans la mainwindow
     this->minot->doConnect();
     this->minot->Stop();
-
+    view = new QWebEngineView(parent);
+    ui->gridLayout->addWidget(view);
     //connect signal
     connect(minot, SIGNAL(updateUI(QByteArray)), this, SLOT(update_Robot_Information()));
 
@@ -28,37 +33,76 @@ MainWindow::~MainWindow()
 */
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
+    QNetworkRequest request;
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
   switch(event->key() ){
-               case Qt :: Key_Z :
-                   qDebug()<<"you pressed on Z";
+               case Qt :: Key_8 :
+                   qDebug()<<"you pressed on 8";
                      this->minot->mouvement(150,150,80);
                           break;
-               case Qt :: Key_S :
-                   qDebug()<<"you pressed on S";
+               case Qt :: Key_2 :
+                   qDebug()<<"you pressed on 2";
                     this->minot->mouvement(150,150,0);
                           break;
-              case Qt :: Key_Q :
-                   qDebug()<<"you pressed on D";
+              case Qt :: Key_4 :
+                   qDebug()<<"you pressed on 4";
                     this->minot->mouvement(150,150,16);
-               break;
-             case Qt :: Key_D :
-                   qDebug()<<"you pressed on Q";
+                         break;
+             case Qt :: Key_6 :
+                   qDebug()<<"you pressed on 6";
                    this->minot->mouvement(150,150,64);
-                   break;
-             case Qt :: Key_L :
+                         break;
+             case Qt :: Key_5 :
                 qDebug() << "you stopp the mouvement";
                 this->minot->Stop();
-             case Qt :: Key_B :
+                         break;
+            case Qt :: Key_7 :
+                qDebug()<<"you pressed on 7";
+                  this->minot->mouvement(100,150,80);
+                         break;
+            case Qt :: Key_9 :
+                qDebug()<<"you pressed on 9";
+                  this->minot->mouvement(150,100,80);
+                         break;
+            case Qt :: Key_1 :
+                qDebug()<<"you pressed on 1";
+                  this->minot->mouvement(100,150,00);
+                         break;
+            case Qt :: Key_3 :
+                qDebug()<<"you pressed on 3";
+                  this->minot->mouvement(150,100,00);
+                         break;
+             case Qt :: Key_Alt :
                  qDebug() << "vous affichez la batterie" ;
                   this->minot->getBatteryPercent();
                  //qDebug()<< this->minot->DataReceived[1];
-                 qDebug() <<"capteur avant IR (gauche ou droite" <<(unsigned char) this->minot-> DataReceived[3];
-                 qDebug() <<"capteur avant IR (gauche ou droite" <<(unsigned char)this->minot->DataReceived[4];
-                 qDebug() <<"capteur arriere IR (gauche ou droite" <<(unsigned char) this->minot-> DataReceived[11];
-                 qDebug() <<"capteur arriere IR (gauche ou droite" <<(unsigned char)this->minot->DataReceived[12];
+                 qDebug() <<"capteur avant IR gauche " <<(unsigned char) this->minot-> DataReceived[3];
+                 qDebug() <<"capteur arriere IR gauche" <<(unsigned char)this->minot->DataReceived[4];
+                 qDebug() <<"capteur avant IR droit" <<(unsigned char) this->minot-> DataReceived[11];
+                 qDebug() <<"capteur arriere IR droite" <<(unsigned char)this->minot->DataReceived[12];
                  qDebug() <<"la vitesse gauche est de " << (unsigned char ) this->minot-> DataReceived[1];
                  qDebug() <<"la vitesse gauche est de " << (unsigned char ) this->minot-> DataReceived[10];
+                        break;
+              case Qt :: Key_Z:
 
+                  request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094853&group=1&value=-255"));
+                  manager->get(request);
+                  break;
+          case Qt :: Key_D:
+
+              request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094852&group=1&value=-255"));
+              manager->get(request);
+              break;
+          case Qt :: Key_S:
+
+              request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094853&group=1&value=255"));
+              manager->get(request);
+              break;
+          case Qt :: Key_Q:
+
+              request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094852&group=1&value=255"));
+              manager->get(request);
+              break;
 
   }
 }
@@ -69,22 +113,39 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
 {
 
     switch(event->key() ){
-        case Qt :: Key_Z :
-            qDebug()<<"you stopped press on Z";
+        case Qt :: Key_8 :
+            qDebug()<<"you stopped press on 8";
             this->minot->Stop();
             break;
-        case Qt :: Key_S:
-            qDebug()<<"you stopped press on S";
+        case Qt :: Key_2:
+            qDebug()<<"you stopped press on 2";
             this->minot->Stop();
             break;
-        case Qt :: Key_D:
-            qDebug()<<"you stopped press on D";
+        case Qt :: Key_6:
+            qDebug()<<"you stopped press on 6";
             this->minot->Stop();
             break;
-        case Qt :: Key_Q:
-          qDebug()<<"you stopped press on Q";
-          this->minot->Stop();
-          break;
+        case Qt :: Key_4:
+            qDebug()<<"you stopped press on 4";
+             this->minot->Stop();
+             break;
+        case Qt :: Key_7 :
+            qDebug()<<"you stopped press on 7";
+            this->minot->Stop();
+            break;
+        case Qt :: Key_9:
+            qDebug()<<"you stopped press on 9";
+            this->minot->Stop();
+            break;
+        case Qt :: Key_1:
+            qDebug()<<"you stopped press on 1";
+            this->minot->Stop();
+            break;
+        case Qt :: Key_3:
+            qDebug()<<"you stopped press on 3";
+            this->minot->Stop();
+            break;
+
 
     }
     }
@@ -95,69 +156,18 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
 
 
 
-void MainWindow::on_Avancer_pressed()
+
+
+
+//conexion au robot
+void MainWindow::on_pushButton_3_clicked()
 {
-    minot->Avant(100,100);
+    this->minot->doConnect();
+    minot->connected();
+    qDebug() << "you are connected" ;
+
 }
-
-
-void MainWindow::on_Avancer_released()
-{
-    minot->Stop();
-}
-
-
-void MainWindow::on_Gauche_pressed()
-{
-    minot->Gauche(100,100);
-}
-
-
-void MainWindow::on_Gauche_released()
-{
-    minot->Stop();
-}
-
-
-void MainWindow::on_Reculer_pressed()
-{
-    minot->Arriere(100,100);
-}
-
-
-void MainWindow::on_Reculer_released()
-{
-    minot->Stop();
-}
-
-
-void MainWindow::on_Droite_pressed()
-{
-    minot->Droite(100,100);
-}
-
-
-void MainWindow::on_Droite_released()
-{
-    minot->Stop();
-}
-
-
-void MainWindow::on_Stop_clicked()
-{
-    minot->Stop();
-}
-
-
-void MainWindow::on_pushButton_clicked()
-{
-        this->minot->doConnect();
-        minot->connected();
-        qDebug() << "you are connected" ;
-}
-
-
-
+//deconnexion au robot
 void MainWindow::on_deconnection_clicked()
 {
     if(this->minot->doConnect2()){
@@ -168,11 +178,146 @@ void MainWindow::on_deconnection_clicked()
         qDebug() <<"you cant disconnect to the robot for the moment";
 }
 
-
+//les fonctions suivante permette de gerer le mouvement du robot à la souris {
 void MainWindow::on_Avancer_3_clicked()
 {
     qDebug() << "hey you dumbass" ;
 }
+
+void MainWindow::on_Avancer_3_pressed()
+{
+    this->minot->mouvement(150,150,80);
+}
+
+
+void MainWindow::on_Avancer_3_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Droite_3_pressed()
+{
+    this->minot->mouvement(150,150,64);
+}
+
+void MainWindow::on_Droite_3_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Reculer_3_pressed()
+{
+    this->minot->mouvement(150,150,00);
+}
+
+void MainWindow::on_Reculer_3_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Gauche_3_pressed()
+{
+    this->minot->mouvement(150,150,16);
+}
+
+void MainWindow::on_Gauche_3_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Droite_5_pressed()//deplacement robot avant-gauche
+{
+    this->minot->mouvement(100,150,80);
+}
+
+void MainWindow::on_Droite_5_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Droite_4_pressed()//deplacement robot avant-droite
+{
+    this->minot->mouvement(150,100,80);
+}
+
+
+void MainWindow::on_Droite_4_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Droite_6_pressed() //deplacement arriere-gauche
+{
+    this->minot->mouvement(100,150,00);
+}
+
+void MainWindow::on_Droite_6_released()
+{
+    this->minot->Stop();
+}
+
+void MainWindow::on_Droite_7_pressed() //deplacement arriere_droite
+{
+    this->minot->mouvement(150,100,00);
+
+}
+
+void MainWindow::on_Droite_7_released()
+{
+    this->minot->Stop();
+}
+
+// }
+
+
+//move la camera vers le haut
+void MainWindow::on_pushButton_clicked()
+{
+    QNetworkRequest request;
+    request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094853&group=1&value=-255"));
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+    manager->get(request);
+
+}
+
+
+
+
+//move la camera vers la droite
+void MainWindow::on_pushButton_4_clicked()
+{
+    QNetworkRequest request;
+    request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094852&group=1&value=-255"));
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+    manager->get(request);
+}
+
+//mouv la caméra vers le bas
+void MainWindow::on_pushButton_5_clicked()
+{
+    QNetworkRequest request;
+    request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094853&group=1&value=255"));
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+    manager->get(request);
+}
+
+//mouv la camera vers la gauche
+void MainWindow::on_pushButton_2_clicked()
+{
+    QNetworkRequest request;
+    request.setUrl(QUrl("http://192.168.1.106:8080/?action=command&dest=0&plugin=0&id=10094852&group=1&value=255"));
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+    manager->get(request);
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    view->load(QUrl("http://192.168.1.106:8080/?action=stream"));
+    view->show();
+}
+
+
 
 
 

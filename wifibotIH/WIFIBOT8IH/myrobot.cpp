@@ -235,3 +235,10 @@ int MyRobot::getSpeedR()
 {
     return speedR ;
 }
+
+
+
+QTcpSocket *MyRobot::getSocket()
+{
+    return socket;
+}

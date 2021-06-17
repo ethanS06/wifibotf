@@ -10,14 +10,11 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QOpenGLWidget>
-#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -29,20 +26,26 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QWidget *centralwidget_2;
-    QOpenGLWidget *openGLWidget_3;
     QPushButton *Avancer_3;
     QPushButton *Gauche_3;
     QPushButton *Reculer_3;
     QPushButton *Droite_3;
     QPushButton *Stop_3;
-    QProgressBar *progressBar_5;
-    QLabel *label_7;
-    QLCDNumber *lcdNumber_3;
-    QLabel *label_8;
-    QLabel *label_9;
-    QProgressBar *progressBar_6;
     QPushButton *pushButton_3;
     QPushButton *deconnection;
+    QPushButton *Droite_4;
+    QPushButton *Droite_5;
+    QPushButton *Droite_6;
+    QPushButton *Droite_7;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QLabel *label;
+    QLabel *label_2;
     QMenuBar *menubar_2;
     QStatusBar *statusbar_2;
     QMenuBar *menubar;
@@ -52,86 +55,100 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1301, 668);
+        MainWindow->resize(1820, 1265);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget_2 = new QWidget(centralwidget);
         centralwidget_2->setObjectName(QString::fromUtf8("centralwidget_2"));
-        centralwidget_2->setGeometry(QRect(10, 10, 1081, 740));
-        openGLWidget_3 = new QOpenGLWidget(centralwidget_2);
-        openGLWidget_3->setObjectName(QString::fromUtf8("openGLWidget_3"));
-        openGLWidget_3->setGeometry(QRect(20, 19, 721, 611));
+        centralwidget_2->setGeometry(QRect(10, 40, 1181, 1071));
         Avancer_3 = new QPushButton(centralwidget_2);
         Avancer_3->setObjectName(QString::fromUtf8("Avancer_3"));
-        Avancer_3->setGeometry(QRect(889, 20, 91, 91));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/images/Fleche-haut.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        Avancer_3->setIcon(icon);
+        Avancer_3->setGeometry(QRect(970, 110, 91, 91));
+        Avancer_3->setStyleSheet(QString::fromUtf8("background-color: white;"));
         Avancer_3->setIconSize(QSize(80, 80));
         Avancer_3->setFlat(true);
         Gauche_3 = new QPushButton(centralwidget_2);
         Gauche_3->setObjectName(QString::fromUtf8("Gauche_3"));
-        Gauche_3->setGeometry(QRect(809, 100, 91, 91));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/images/Fleche-gauche.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        Gauche_3->setIcon(icon1);
+        Gauche_3->setGeometry(QRect(890, 190, 91, 91));
+        Gauche_3->setStyleSheet(QString::fromUtf8("background-color: white;"));
         Gauche_3->setIconSize(QSize(80, 80));
         Gauche_3->setFlat(true);
         Reculer_3 = new QPushButton(centralwidget_2);
         Reculer_3->setObjectName(QString::fromUtf8("Reculer_3"));
-        Reculer_3->setGeometry(QRect(890, 180, 91, 81));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/images/Fleche-bas.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        Reculer_3->setIcon(icon2);
+        Reculer_3->setGeometry(QRect(971, 270, 91, 81));
+        Reculer_3->setStyleSheet(QString::fromUtf8("background-color: white;"));
         Reculer_3->setIconSize(QSize(80, 80));
         Reculer_3->setFlat(true);
         Droite_3 = new QPushButton(centralwidget_2);
         Droite_3->setObjectName(QString::fromUtf8("Droite_3"));
-        Droite_3->setGeometry(QRect(970, 100, 91, 91));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/images/Fleche-droite.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        Droite_3->setIcon(icon3);
+        Droite_3->setGeometry(QRect(1051, 190, 91, 91));
+        Droite_3->setStyleSheet(QString::fromUtf8("background-color: white;"));
         Droite_3->setIconSize(QSize(80, 80));
         Droite_3->setFlat(true);
         Stop_3 = new QPushButton(centralwidget_2);
         Stop_3->setObjectName(QString::fromUtf8("Stop_3"));
-        Stop_3->setGeometry(QRect(890, 100, 91, 91));
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/images/stop.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        Stop_3->setIcon(icon4);
+        Stop_3->setGeometry(QRect(971, 190, 91, 91));
+        Stop_3->setStyleSheet(QString::fromUtf8("background-color: white;"));
         Stop_3->setIconSize(QSize(80, 80));
         Stop_3->setFlat(true);
-        progressBar_5 = new QProgressBar(centralwidget_2);
-        progressBar_5->setObjectName(QString::fromUtf8("progressBar_5"));
-        progressBar_5->setGeometry(QRect(820, 360, 211, 71));
-        progressBar_5->setValue(90);
-        label_7 = new QLabel(centralwidget_2);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(780, 300, 251, 31));
-        QFont font;
-        font.setPointSize(18);
-        label_7->setFont(font);
-        lcdNumber_3 = new QLCDNumber(centralwidget_2);
-        lcdNumber_3->setObjectName(QString::fromUtf8("lcdNumber_3"));
-        lcdNumber_3->setGeometry(QRect(830, 510, 181, 61));
-        label_8 = new QLabel(centralwidget_2);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(790, 460, 251, 31));
-        label_8->setFont(font);
-        label_9 = new QLabel(centralwidget_2);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setGeometry(QRect(790, 600, 251, 31));
-        label_9->setFont(font);
-        progressBar_6 = new QProgressBar(centralwidget_2);
-        progressBar_6->setObjectName(QString::fromUtf8("progressBar_6"));
-        progressBar_6->setGeometry(QRect(820, 650, 211, 71));
-        progressBar_6->setValue(24);
         pushButton_3 = new QPushButton(centralwidget_2);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(760, 20, 80, 22));
+        pushButton_3->setGeometry(QRect(880, 30, 80, 22));
         deconnection = new QPushButton(centralwidget_2);
         deconnection->setObjectName(QString::fromUtf8("deconnection"));
-        deconnection->setGeometry(QRect(760, 60, 80, 22));
+        deconnection->setGeometry(QRect(990, 30, 80, 22));
+        Droite_4 = new QPushButton(centralwidget_2);
+        Droite_4->setObjectName(QString::fromUtf8("Droite_4"));
+        Droite_4->setGeometry(QRect(1070, 120, 91, 81));
+        Droite_4->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+""));
+        Droite_4->setIconSize(QSize(80, 80));
+        Droite_4->setFlat(true);
+        Droite_5 = new QPushButton(centralwidget_2);
+        Droite_5->setObjectName(QString::fromUtf8("Droite_5"));
+        Droite_5->setGeometry(QRect(870, 120, 91, 81));
+        Droite_5->setStyleSheet(QString::fromUtf8("background-color: white;"));
+        Droite_5->setIconSize(QSize(80, 80));
+        Droite_5->setFlat(true);
+        Droite_6 = new QPushButton(centralwidget_2);
+        Droite_6->setObjectName(QString::fromUtf8("Droite_6"));
+        Droite_6->setGeometry(QRect(880, 270, 91, 81));
+        Droite_6->setStyleSheet(QString::fromUtf8("background-color: white;"));
+        Droite_6->setIconSize(QSize(80, 80));
+        Droite_6->setFlat(true);
+        Droite_7 = new QPushButton(centralwidget_2);
+        Droite_7->setObjectName(QString::fromUtf8("Droite_7"));
+        Droite_7->setGeometry(QRect(1060, 270, 91, 81));
+        Droite_7->setStyleSheet(QString::fromUtf8("background-color: white;"));
+        Droite_7->setIconSize(QSize(80, 80));
+        Droite_7->setFlat(true);
+        gridLayoutWidget = new QWidget(centralwidget_2);
+        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(250, 50, 611, 401));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton = new QPushButton(centralwidget_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(80, 150, 81, 51));
+        pushButton_2 = new QPushButton(centralwidget_2);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(0, 200, 81, 51));
+        pushButton_4 = new QPushButton(centralwidget_2);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setGeometry(QRect(160, 200, 81, 51));
+        pushButton_5 = new QPushButton(centralwidget_2);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        pushButton_5->setGeometry(QRect(80, 250, 81, 51));
+        pushButton_6 = new QPushButton(centralwidget_2);
+        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
+        pushButton_6->setGeometry(QRect(1100, 30, 80, 21));
+        label = new QLabel(centralwidget_2);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(930, 100, 151, 31));
+        label_2 = new QLabel(centralwidget_2);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(46, 82, 161, 61));
         menubar_2 = new QMenuBar(centralwidget);
         menubar_2->setObjectName(QString::fromUtf8("menubar_2"));
         menubar_2->setGeometry(QRect(10, 10, 1146, 21));
@@ -141,7 +158,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1301, 20));
+        menubar->setGeometry(QRect(0, 0, 1820, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -155,16 +172,24 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        Avancer_3->setText(QString());
-        Gauche_3->setText(QString());
-        Reculer_3->setText(QString());
-        Droite_3->setText(QString());
-        Stop_3->setText(QString());
-        label_7->setText(QCoreApplication::translate("MainWindow", "Etat Batterie :", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindow", "Vitesse :", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "Distance :", nullptr));
+        Avancer_3->setText(QCoreApplication::translate("MainWindow", "Avant", nullptr));
+        Gauche_3->setText(QCoreApplication::translate("MainWindow", "Gauche", nullptr));
+        Reculer_3->setText(QCoreApplication::translate("MainWindow", "Arriere", nullptr));
+        Droite_3->setText(QCoreApplication::translate("MainWindow", "Droite", nullptr));
+        Stop_3->setText(QCoreApplication::translate("MainWindow", "STOP", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "connection", nullptr));
         deconnection->setText(QCoreApplication::translate("MainWindow", "deconnection", nullptr));
+        Droite_4->setText(QCoreApplication::translate("MainWindow", "Avant Droite", nullptr));
+        Droite_5->setText(QCoreApplication::translate("MainWindow", "Avant Gauche", nullptr));
+        Droite_6->setText(QCoreApplication::translate("MainWindow", "Arriere Gauche", nullptr));
+        Droite_7->setText(QCoreApplication::translate("MainWindow", "Arriere-Droite", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Haut", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Gauche", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "Droite", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("MainWindow", "Bas", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("MainWindow", "Camera:ON", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Mouvement du Robot:", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Mouvement de la camera", nullptr));
     } // retranslateUi
 
 };

@@ -268,6 +268,7 @@ Makefile: ..\WIFIBOT8IH\WIFIBOT8IH.pro C:\Qt\5.15.0\msvc2019_64\mkspecs\win32-ms
 		C:\Qt\5.15.0\msvc2019_64\mkspecs\features\lex.prf \
 		..\WIFIBOT8IH\WIFIBOT8IH.pro \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineWidgets.prl \
+		C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngine.prl \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineCore.prl \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5Quick.prl \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5PrintSupport.prl \
@@ -283,6 +284,7 @@ Makefile: ..\WIFIBOT8IH\WIFIBOT8IH.pro C:\Qt\5.15.0\msvc2019_64\mkspecs\win32-ms
 		C:\Qt\5.15.0\msvc2019_64\mkspecs\features\build_pass.prf \
 		..\WIFIBOT8IH\images.qrc \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineWidgetsd.prl \
+		C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngined.prl \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineCored.prl \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5Quickd.prl \
 		C:\Qt\5.15.0\msvc2019_64\lib\Qt5PrintSupportd.prl \
@@ -480,6 +482,7 @@ C:\Qt\5.15.0\msvc2019_64\mkspecs\features\yacc.prf:
 C:\Qt\5.15.0\msvc2019_64\mkspecs\features\lex.prf:
 ..\WIFIBOT8IH\WIFIBOT8IH.pro:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineWidgets.prl:
+C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngine.prl:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineCore.prl:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5Quick.prl:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5PrintSupport.prl:
@@ -495,6 +498,7 @@ C:\Qt\5.15.0\msvc2019_64\lib\qtmain.prl:
 C:\Qt\5.15.0\msvc2019_64\mkspecs\features\build_pass.prf:
 ..\WIFIBOT8IH\images.qrc:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineWidgetsd.prl:
+C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngined.prl:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5WebEngineCored.prl:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5Quickd.prl:
 C:\Qt\5.15.0\msvc2019_64\lib\Qt5PrintSupportd.prl:

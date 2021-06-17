@@ -21,6 +21,7 @@ public:
     QByteArray DataToSend; //vecteur de donnée correspondant aux données que l'on envoie au robot
     QByteArray DataReceived; //vecteur de donnée correspondant aux données que l'on recois du robot
     QMutex Mutex;
+    QTcpSocket* getSocket();
 
 
 signals:
